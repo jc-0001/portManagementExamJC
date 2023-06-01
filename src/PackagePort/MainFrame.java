@@ -35,6 +35,8 @@ public class MainFrame extends JFrame{
     private JRadioButton firstHubRadioButton;
     private JRadioButton secondHubRadioButton;
     private JRadioButton thirdHubRadioButton;
+    private JButton buttonEX;
+    private JTextField textfieldEXAM;
     static int selectedHub;
 
 
@@ -107,6 +109,25 @@ public class MainFrame extends JFrame{
                 stateInHubPlanTextArea.setText(port.hubs[selectedHub].hubDisplay());
 
                 JOptionPane.showMessageDialog(mainPanel, "Container added to stack.");
+            }
+        });
+
+        buttonEX.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int priority = 1;
+                if (btnPriority1.isSelected()) {
+                    priority = 1;
+                } else if (btnPriority2.isSelected()) {
+                    priority = 2;
+                } else if (btnPriority3.isSelected()) {
+                    priority = 3;
+                }
+
+
+
+                int x = port.howManyContChecked(priority);
+                textfieldEXAM.setText(String.valueOf(x));
             }
         });
 
